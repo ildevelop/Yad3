@@ -4,7 +4,7 @@
       <label class="label" for="from">From</label>
       <div class="field">
         <p class="control">
-          <input class="input is-medium" [(ngModel)]="flightSearchParams.from" name="from"  type="text"
+          <input class="input is-medium" [(ngModel)]="flightSearchParams.origin" name="from"  type="text"
             placeholder="Medium input">
         </p>
       </div>
@@ -13,7 +13,7 @@
       <label class="label" for="to">To</label>
       <div class="field">
         <p class="control">
-          <input class="input is-medium" [(ngModel)]="flightSearchParams.to" type="text" placeholder="Medium input">
+          <input class="input is-medium" [(ngModel)]="flightSearchParams.destination" type="text" placeholder="Medium input">
         </p>
       </div>
     </div>
@@ -23,7 +23,7 @@
       <label class="label" for="departing">Departing</label>
       <div class="field">
         <p class="control">
-          <input class="input is-medium" [(ngModel)]="flightSearchParams.departing" type="date"  placeholder="Medium input">
+          <input class="input is-medium" [(ngModel)]="flightSearchParams.departure_date" type="date"  placeholder="Medium input">
         </p>
       </div>
     </div>
@@ -31,7 +31,7 @@
       <label class="label" for="returning">Returning</label>
       <div class="field">
         <p class="control">
-          <input class="input is-medium" [(ngModel)]="flightSearchParams.returning" type="date"  placeholder="Medium input">
+          <input class="input is-medium" [(ngModel)]="flightSearchParams.return_date" type="date"  placeholder="Medium input">
         </p>
       </div>
     </div>
