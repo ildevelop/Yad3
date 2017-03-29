@@ -1,0 +1,42 @@
+<div class="container is-fluid">
+  <div class="row">
+    <div class="field size">
+      <label class="label" for="from">From</label>
+      <div class="field">
+        <p class="control">
+          <input class="input is-medium" [(ngModel)]="flightSearchParams.from" name="from"  type="text"
+            placeholder="Medium input">
+        </p>
+      </div>
+    </div>
+    <div class="field size">
+      <label class="label" for="to">To</label>
+      <div class="field">
+        <p class="control">
+          <input class="input is-medium" [(ngModel)]="flightSearchParams.to" type="text" placeholder="Medium input">
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field size">
+      <label class="label" for="departing">Departing</label>
+      <div class="field">
+        <p class="control">
+          <input class="input is-medium" [(ngModel)]="flightSearchParams.departing" type="date"  placeholder="Medium input">
+        </p>
+      </div>
+    </div>
+    <div class="field size">
+      <label class="label" for="returning">Returning</label>
+      <div class="field">
+        <p class="control">
+          <input class="input is-medium" [(ngModel)]="flightSearchParams.returning" type="date"  placeholder="Medium input">
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="size">
+    <a class="button is-success" (click)="search()" >Search</a>
+  </div>
+</div>
