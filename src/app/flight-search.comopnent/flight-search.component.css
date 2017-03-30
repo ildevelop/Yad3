@@ -1,9 +1,0 @@
-.row{
-    display: flex;
-    flex-direction: row;
-}
-
-.size{
-    width: 300px;
-    margin: 10px;
-}
