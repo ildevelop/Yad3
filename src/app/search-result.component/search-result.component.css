@@ -2,3 +2,10 @@
     height: 170px;
     margin: 10px;
 }
+.sebm-google-map-container {
+  height: 300px;
+  width: 300px;
+  display: block;
+  overflow: visible !important;
+  position: absolute;
+}

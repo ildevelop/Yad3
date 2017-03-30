@@ -8,6 +8,7 @@ import { ApartmentSearch } from './apartment-search.component/apartment-search.c
 import { SearchResultComponent } from './search-result.component/search-result.component';
 
 import { AppRoutingModule } from './app-routing.module'
+import {AgmCoreModule} from "angular2-google-maps/core";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,10 @@ import { AppRoutingModule } from './app-routing.module'
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBGMPl8D-INaWq3oCkDsoclai_-VO8BEks'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

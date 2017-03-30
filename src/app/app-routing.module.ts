@@ -5,7 +5,7 @@ import { ApartmentSearch } from './apartment-search.component/apartment-search.c
 import { SearchResultComponent } from './search-result.component/search-result.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/search', pathMatch: 'full' },
+    { path: '', redirectTo: '/', pathMatch: 'full' },
     { path: 'search', component: ApartmentSearch },
     { path: 'results', component: SearchResultComponent},
 ]
@@ -13,7 +13,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [ RouterModule.forRoot(routes) ],
-    exports: [ RouterModule ] 
+    exports: [ RouterModule ]
 })
 
 export class AppRoutingModule {
