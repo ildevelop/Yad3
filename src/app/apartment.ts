@@ -1,4 +1,4 @@
-export class Flight {
+export class Apartment {
 
     id: number;
     outbound:Object;
