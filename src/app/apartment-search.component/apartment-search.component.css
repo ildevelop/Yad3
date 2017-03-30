@@ -1,16 +1,9 @@
-.from-to{
-
-}
-
-.dates{
-
-}
 .row{
     display: flex;
     flex-direction: row;
-    /*width: 400px;*/
 }
+
 .size{
-    width: 300px;
+    /*width: 300px;*/
     margin: 10px;
 }

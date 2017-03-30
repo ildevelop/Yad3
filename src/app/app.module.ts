@@ -4,16 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { FlightSearchComponent } from './flight-search.comopnent/flight-search.component'
-import { HotelsSearchComponent } from './hotels-search.component/hotels-search.component'
+import { ApartmentSearch } from './apartment-search.component/apartment-search.component';
+import { SearchResultComponent } from './search-result.component/search-result.component';
 
 import { AppRoutingModule } from './app-routing.module'
 
 @NgModule({
   declarations: [
     AppComponent,
-    FlightSearchComponent,
-    HotelsSearchComponent
+    ApartmentSearch,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,

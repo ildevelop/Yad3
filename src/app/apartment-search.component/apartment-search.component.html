@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="field size">
+      <label class="label" for="from">From</label>
+      <div class="field">
+        <p class="control">
+          <input class="input is-medium" [(ngModel)]="apartmentSearchParams.adress" name="from" type="text" placeholder="Medium input">
+        </p>
+      </div>
+    </div>
+    <div class="field size">
+      <label class="label">Min Price</label>
+      <p class="control">
+        <span class="select">
+      <select class="select is-medium" [(ngModel)]="apartmentSearchParams.minPrice">
+        <option value="100">100$</option>
+        <option value="200">200$</option>
+      </select>
+    </span>
+      </p>
+    </div>
+    <div class="field size">
+      <label class="label">Max Price</label>
+      <p class="control">
+        <span class="select">
+      <select class="select is-medium" [(ngModel)]="apartmentSearchParams.maxPrice">
+        <option value="1000">1000$</option>
+        <option value="1500">1500$</option>
+      </select>
+    </span>
+      </p>
+    </div>
+  </div>
+  <div class="size">
+    <a class="button is-success" (click)="search()" routerLink="/results">Search</a>
+    <router-outlet></router-outlet>
+  </div>
+</div>
