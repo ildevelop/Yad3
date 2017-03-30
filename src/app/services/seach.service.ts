@@ -5,16 +5,16 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 
-import { Flight } from '../flight';
+import { Apartment } from '../apartment';
 
 export class SearchService {
-    private flights: Flight[];
+    private flights: Apartment[];
     constructor(private _http:Http){
 
     }
-    search(url: string):Observable<Flight[]>{
+    search(url: string):Observable<Apartment[]>{
         return this._http.get(url)
-                         .map((response:Response) => <Flight[]> response.json())
+                         .map((response:Response) => <Apartment[]> response.json())
                          .do(data => this.flights = data)                    
     }
 

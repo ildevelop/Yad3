@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Flight } from '../apartment';
+import { Apartment } from '../apartment';
 import { SearchService } from '../services/seach.service';
 
 @Component({
