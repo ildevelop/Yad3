@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { Apartment } from '../apartment';
-import { SearchService } from '../services/seach.service';
 
 @Component({
     selector: 'apartment-search',
@@ -11,7 +9,7 @@ import { SearchService } from '../services/seach.service';
 
 export class ApartmentSearch {
     private apiKey = '8DXBNETvTja7I940x28BHwKZ4bxJuYiG';
-    
+
     apartmentSearchParams = {
         address: '',
         minPrice: '',

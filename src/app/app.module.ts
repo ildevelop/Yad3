@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -9,6 +9,7 @@ import { SearchResultComponent } from './search-result.component/search-result.c
 
 import { AppRoutingModule } from './app-routing.module'
 import {AgmCoreModule} from "angular2-google-maps/core";
+
 
 @NgModule({
   declarations: [
@@ -21,11 +22,13 @@ import {AgmCoreModule} from "angular2-google-maps/core";
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBGMPl8D-INaWq3oCkDsoclai_-VO8BEks'
+      apiKey: 'AIzaSyBGMPl8D-INaWq3oCkDsoclai_-VO8BEks',
     })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
