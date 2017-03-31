@@ -14,50 +14,16 @@ import {
 
 @Component({
   selector: 'app-root',
-  styles: [`
-    .sebm-google-map-container {
-       height: 300px;
-     }
-  `],
-  template: `
-    <sebm-google-map 
-      [latitude]="lat"
-      [longitude]="lng"
-      [zoom]="zoom"
-      [disableDefaultUI]="false"
-      [zoomControl]="false">
-    
-      <sebm-google-map-marker 
-          *ngFor="let m of markers; let i = index"
-          (markerClick)="clickedMarker(m.label, i)"
-          [latitude]="m.lat"
-          [longitude]="m.lng"
-          [label]="m.label"
-          [markerDraggable]="m.draggable"
-          (dragEnd)="markerDragEnd(m, $event)">
-          
-        <sebm-google-map-info-window>
-          <strong>InfoWindow content</strong>
-        </sebm-google-map-info-window>
-        
-      </sebm-google-map-marker>
-      
-      <sebm-google-map-circle [latitude]="lat + 0.3" [longitude]="lng" 
-          [radius]="5000"
-          [fillColor]="'red'"
-          [circleDraggable]="true"
-          [editable]="true">
-      </sebm-google-map-circle>
-
-    </sebm-google-map>
-`})
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
 export class AppComponent {
   // google maps zoom level
   zoom: number = 8;
 
   // initial center position for the map
-  lat: number = 51.673858;
-  lng: number = 7.815982;
+  lat: number = 32.085300;
+  lng: number = 34.781768;
 
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
@@ -68,22 +34,42 @@ export class AppComponent {
     console.log('dragEnd', m, $event);
   }
 
+
+//   // Geocode an address.
+//   googleMapsClient.geocode({
+//   address: '1600 Amphitheatre Parkway, Mountain View, CA'
+// }, function(err, response) {
+//   if (!err) {
+//     console.log(response.json.results);
+//   }
+// });
+
+  mapClicked($event: MouseEvent) {
+    let object =   {
+      lat: $event.screenY,
+      lng: $event.screenX,
+      label: 'N',
+      draggable: true
+    }
+    this.markers.push(object);
+  }
+
   markers: marker[] = [
     {
-      lat: 51.673858,
-      lng: 7.815982,
+      lat: 31.804381,
+      lng: 34.655314,
       label: 'A',
       draggable: true
     },
     {
-      lat: 51.373858,
-      lng: 7.215982,
+      lat: 35.804381,
+      lng: 33.804381,
       label: 'B',
       draggable: false
     },
     {
-      lat: 51.723858,
-      lng: 7.895982,
+      lat: 33.899981,
+      lng: 36.895982,
       label: 'C',
       draggable: true
     }
