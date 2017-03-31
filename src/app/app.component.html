@@ -3,7 +3,7 @@
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
-          {{title}}
+          hello app
         </h1>
       </div>
     </div>
@@ -21,17 +21,45 @@
   <div class="container">
     <h1>Angular 2 + Google Maps Places Autocomplete</h1>
     <div class="form-group">
-      <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+      <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search>
     </div>
-    <sebm-google-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-      <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude"></sebm-google-map-marker>
+    <sebm-google-map
+      [latitude]="lat"
+      [longitude]="lng"
+      [zoom]="zoom"
+      [disableDefaultUI]="false"
+      [zoomControl]="false"
+      >
+
+      <sebm-google-map-marker
+        *ngFor="let m of markers; let i = index"
+        (markerClick)="clickedMarker(m.label, i)"
+        [latitude]="m.lat"
+        [longitude]="m.lng"
+        [label]="m.label"
+        [markerDraggable]="m.draggable"
+        (dragEnd)="markerDragEnd(m, $event)">
+
+        <sebm-google-map-info-window>
+          <strong>InfoWindow content</strong>
+        </sebm-google-map-info-window>
+
+      </sebm-google-map-marker>
+
+      <sebm-google-map-circle [latitude]="lat + 0.3" [longitude]="lng"
+                              [radius]="5000"
+                              [fillColor]="'red'"
+                              [circleDraggable]="true"
+                              [editable]="true">
+      </sebm-google-map-circle>
+
     </sebm-google-map>
   </div>
   <!--<sebm-google-map [latitude]="lat" [longitude]="lng">-->
     <!--<sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>-->
   <!--</sebm-google-map>-->
-  <!--<apartment-search></apartment-search>-->
-  <!--<search-result>  </search-result>-->
+  <apartment-search></apartment-search>
+  <search-result>  </search-result>
   <router-outlet></router-outlet>
 </div>
 <!--<flight-search></flight-search>-->
