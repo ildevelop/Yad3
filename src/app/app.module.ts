@@ -9,6 +9,7 @@ import { SearchResultComponent } from './search-result.component/search-result.c
 
 import { AppRoutingModule } from './app-routing.module'
 import {AgmCoreModule} from "angular2-google-maps/core";
+import {GoogleApiService} from "./google.api.service";
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import {AgmCoreModule} from "angular2-google-maps/core";
       apiKey: 'AIzaSyBGMPl8D-INaWq3oCkDsoclai_-VO8BEks',
     })
   ],
-  providers: [],
+  providers: [GoogleApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

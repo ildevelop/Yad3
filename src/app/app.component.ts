@@ -10,6 +10,8 @@ import {
 import {
   AgmCoreModule
 } from 'angular2-google-maps/core';
+import {GoogleApiService} from "./google.api.service";
+import {Response} from "@angular/http";
 
 
 @Component({
@@ -20,10 +22,12 @@ import {
 export class AppComponent {
   // google maps zoom level
   zoom: number = 8;
-
+  address: string;
   // initial center position for the map
   lat: number = 32.085300;
   lng: number = 34.781768;
+
+  constructor(public googleApiService: GoogleApiService){}
 
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
@@ -35,24 +39,26 @@ export class AppComponent {
   }
 
 
-//   // Geocode an address.
-//   googleMapsClient.geocode({
-//   address: '1600 Amphitheatre Parkway, Mountain View, CA'
-// }, function(err, response) {
-//   if (!err) {
-//     console.log(response.json.results);
-//   }
-// });
-
-  mapClicked($event: MouseEvent) {
-    let object =   {
-      lat: $event.screenY,
-      lng: $event.screenX,
-      label: 'N',
-      draggable: true
-    }
-    this.markers.push(object);
+  public getXY(address:string){
+    this.googleApiService.get_location_response(address).subscribe(res => {
+      this.setCoordinates(res)
+    });
+    //   console.log("response="+response)
+    // response = this.googleApiService.getResponse();
+    // console.log("response2="+response)
+    // this.lat = response["results"][0]["geometry"]["bounds"]["northeast"]["lat"]
+    // this.lng = response["results"][0]["geometry"]["bounds"]["northeast"]["lng"]
   }
+
+  // mapClicked($event: MouseEvent) {
+  //   let object =   {
+  //     lat: $event.screenY,
+  //     lng: $event.screenX,
+  //     label: 'N',
+  //     draggable: true
+  //   }
+  //   this.markers.push(object);
+  // }
 
   markers: marker[] = [
     {
@@ -74,6 +80,12 @@ export class AppComponent {
       draggable: true
     }
   ]
+
+  private setCoordinates(res: Response) {
+    console.log("res="+res.json()["results"]);
+    this.lat = res.json()["results"][0]["geometry"]["bounds"]["northeast"]["lat"]
+    this.lng = res.json()["results"][0]["geometry"]["bounds"]["northeast"]["lng"]
+  }
 }
 // just an interface for type safety.
 interface marker {

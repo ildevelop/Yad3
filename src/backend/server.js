@@ -28,9 +28,9 @@ app.use(session({
 // APIs
 // select all
 app.get('/get_location', function(req, res) {
-  address = 'address='+req.body['address']
+  addressParam = req.param('address')
   request({
-    url: 'https://maps.googleapis.com/maps/api/geocode/json/'+text,
+    url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+addressParam,
     method: 'GET',
   }, function (err, response, body) {
     res.setHeader('Content-Type', 'application/json');
