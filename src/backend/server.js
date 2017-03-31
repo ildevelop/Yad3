@@ -27,21 +27,16 @@ app.use(session({
 
 // APIs
 // select all
-// app.post('/templateapi', function(req, res) {
-//   apiheaders = {
-//     'Authorization': '2524a832-c1c6-4894-9125-41a9ea84e013',
-//     'Content-Type': 'application/json'
-//   }
-//   text = 'text='+req.body['text']
-//   request({
-//     headers: apiheaders,
-//     url: 'http://api1.webpurify.com/'+text,
-//     method: 'POST'
-//   }, function (err, response, body) {
-//     res.setHeader('Content-Type', 'application/json');
-//     res.json(JSON.parse(body));
-//   });
-// });
+app.get('/get_location', function(req, res) {
+  address = 'address='+req.body['address']
+  request({
+    url: 'https://maps.googleapis.com/maps/api/geocode/json/'+text,
+    method: 'GET',
+  }, function (err, response, body) {
+    res.setHeader('Content-Type', 'application/json');
+    res.json(JSON.parse(body));
+  });
+});
 
 // all other routes are handled by Angular
 app.get('/*', function(req, res) {
